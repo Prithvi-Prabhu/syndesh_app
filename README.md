@@ -23,4 +23,5 @@ SDGs:
 12 - Reduced Consumption and Production
 
 
-![SYNDESH](Screenshot 2024-01-17 192252)
+![SYNDESH](https://github.com/Prithvi-Prabhu/syndesh_app/assets/149374826/664a9fcc-e94d-4a8e-bc05-2678385c7e08)
+
