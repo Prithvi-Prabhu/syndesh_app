@@ -1,0 +1,310 @@
+/* import 'package:flutter/material.dart';
+import 'package:syndesh_mockup/components/my_button.dart';
+import 'package:syndesh_mockup/components/my_textfield.dart';
+import 'package:syndesh_mockup/components/square_tile.dart';
+import 'package:geolocator/geolocator.dart';
+
+class SignUpPage extends StatelessWidget {
+  SignUpPage({super.key});
+
+  // text editing controllers
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final nameController = TextEditingController();
+
+  // sign user in method
+  void signUserIn() {}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              
+
+          
+              const SizedBox(height: 50),
+
+              // welcome back, you've been missed!
+              Text(
+                'Discover the world around you!',
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  fontSize: 16,
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              // username textfield
+              MyTextField(
+                controller: nameController,
+                hintText: 'Your Name',
+                obscureText: false,
+              ),
+
+               const SizedBox(height: 25),
+
+              // username textfield
+              MyTextField(
+                controller: usernameController,
+                hintText: 'Username',
+                obscureText: false,
+              ),
+
+
+              const SizedBox(height: 10),
+
+              // password textfield
+              MyTextField(
+                controller: passwordController,
+                hintText: 'Password',
+                obscureText: true,
+              ),
+
+              const SizedBox(height: 10),
+
+              // forgot password?
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Confirm Password?',
+                      style: TextStyle(color: Colors.grey[600]),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              // sign in button
+              MyButton(
+                onTap: signUserIn,
+              ),
+
+              const SizedBox(height: 50),
+
+              // or continue with
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'Or continue with',
+                        style: TextStyle(color: Colors.grey[700]),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 50),
+
+              // google + apple sign in buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  // google button
+                  SquareTile(imagePath: 'assets/icons/google.png'),
+
+                  SizedBox(width: 25),
+
+                  // apple button
+                  SquareTile(imagePath: 'assets/icons/apple.png')
+                ],
+              ),
+
+                 SizedBox(height: 16.0),
+            TextField(
+              controller: _locationController,
+              decoration: InputDecoration(labelText: 'Location'),
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () async {
+                // Retrieve location using Geolocator package
+                Position position = await Geolocator.getCurrentPosition(
+                  desiredAccuracy: LocationAccuracy.high,
+                );
+                String location = '${position.latitude}, ${position.longitude}';
+
+                // Use the location data as needed
+                print('Location: $location');
+              },
+              child: Text('Get Location'),
+            ),
+            SizedBox(height: 16.0),
+
+            ElevatedButton(
+              onPressed: () {
+                // Handle signup logic with _usernameController.text and _locationController.text
+                String username = _usernameController.text;
+                String location = _locationController.text;
+
+                // Use the signup data as needed
+                print('Username: $username, Location: $location');
+              },
+              child: Text('Sign Up'),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      );
+    );
+  }
+} */
+
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: RegistrationPage(),
+    );
+  }
+}
+
+class RegistrationPage extends StatefulWidget {
+  @override
+  _RegistrationPageState createState() => _RegistrationPageState();
+}
+
+class _RegistrationPageState extends State<RegistrationPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Registration Page'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // App Logo at the top center
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Image.asset(
+                'assets/app_logo.png', // Replace with your logo image asset
+                height: 100,
+                width: 100,
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // TextFields for Name, Phone, Email/Username, Password, Confirm Password
+            buildTextField('Name'),
+            buildTextField('Phone Number'),
+            buildTextField('Username/Email'),
+            buildTextField('Password'),
+            buildTextField('Confirm Password'),
+
+            // Line division
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 20),
+              height: 1,
+              color: Colors.grey,
+            ),
+
+            // Enter your location text box
+            buildTextField('Enter your location'),
+
+            // Google Map for location
+            Container(
+              height: 200,
+              margin: EdgeInsets.symmetric(vertical: 20),
+              child: GoogleMap(
+                // Implement your Google Map logic here
+                initialCameraPosition: CameraPosition(
+                  target: LatLng(37.7749, -122.4194), // Default position
+                  zoom: 12,
+                ),
+              ),
+            ),
+
+            // Sign Up button
+            ElevatedButton(
+              onPressed: () {
+                // Implement your sign-up logic here
+              },
+              child: Text('Sign Up'),
+            ),
+
+            SizedBox(height: 10),
+
+            // Or sign up with text
+            Text('Or sign up with'),
+
+            SizedBox(height: 10),
+
+            // Google and Apple icons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.add), // Replace with Google icon
+                SizedBox(width: 20),
+                Icon(Icons.add), // Replace with Apple icon
+              ],
+            ),
+
+            SizedBox(height: 10),
+
+            // Login instead text
+            InkWell(
+              onTap: () {
+                // Implement your login page navigation logic here
+              },
+              child: Text(
+                'Login instead',
+                style: TextStyle(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildTextField(String labelText) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: labelText,
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
+  }
+}
