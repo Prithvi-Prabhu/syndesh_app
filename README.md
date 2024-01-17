@@ -1,16 +1,22 @@
 # syndesh
 
-A new Flutter project.
+SYNDESH - in tune with the world around you!
 
-## Getting Started
+SYNDESH is an app that integrates several services to ensure community-sourced solutions for users. Whether providing an opportunity for small businesses to grow and flourish, or allowing a platform for neighbours to discuss issues, this app ensures a one-stop solution for fostering a sense of community. 
 
-This project is a starting point for a Flutter application.
+The services provided:
 
-A few resources to get you started if this is your first Flutter project:
+1. Delivery: Platform for small businesses left out of online delivery services to find customers in their neighbourhood, and allow new businesses to flourish.
+2. Jobs: Job listings for youth, disabled folks and other demographics vulnerable to unemployment.
+3. Services: Allows private practitioners and trade workers like electricians, plumbers, local dentists to advertise and list their services. Also provides information of government services.
+4. Donations: Donation made easy. Neighbours can promote sustainability by sharing resources.
+5. Forum: Online Townhall to inject a human touch in the fast paced tech world.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## This is project created for the Google Solution Challenge 2024
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+SDGs: 
+
+8 - Decent Work and Economic Growth
+9 - Industry, Innovation and Infrastructure
+12 - Reduced Consumption and Production
+
