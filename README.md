@@ -22,5 +22,5 @@ SDGs:
 
 12 - Reduced Consumption and Production
 
-![Uploading Screenshot 2024-01-17 192252.png…]()
 
+![SYNDESH](Screenshot 2024-01-17 192252)
